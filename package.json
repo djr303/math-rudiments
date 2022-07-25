@@ -1,10 +1,12 @@
 {
   "name": "math-rudiments",
-  "version": "1.0.0",
-  "description": "* TypeScript * To the power of 10 * Addtiion, subtraction, multiplication,division",
-  "main": "index.js",
+  "version": "0.0.1",
+  "description": "To the power of 10 Addition, subtraction, multiplication, division",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest",
+    "compile": "node ./node_modules/typescript/bin/tsc -p ./tsconfig.json",
+    "lint:fix" : "eslint --fix ./",
+    "run": "node ./dist/index.js"
   },
   "repository": {
     "type": "git",
@@ -18,5 +20,18 @@
   "homepage": "https://github.com/djr303/math-rudiments#readme",
   "dependencies": {
     "colors": "^1.4.0"
+  },
+  "devDependencies": {
+    "@types/jest": "^28.1.6",
+    "jest": "^28.1.3",
+    "ts-jest": "^28.0.7",
+    "@types/node": "^13.13.4",
+    "tslint": "^6.1.2",
+    "eslint": "^6.5.1",
+    "eslint-config-standard": "^14.1.0",
+    "eslint-plugin-import": "^2.18.2",
+    "eslint-plugin-node": "^10.0.0",
+    "eslint-plugin-standard": "^4.0.1",
+    "typescript": "^3.8.3"
   }
 }

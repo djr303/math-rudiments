@@ -1,0 +1,23 @@
+{
+  "compilerOptions": {
+    "target": "ES5",
+    "outDir": "./dist",
+    "rootDir": "./",
+    "noImplicitAny": false,
+    "types": [
+      "@types/node"
+    ],
+    "baseUrl": ".",
+    "moduleResolution": "node",
+    "paths": {
+      "~/*": [
+        "./*"
+      ],
+      "@/*": [
+        "./*"
+      ]
+    },
+  },
+  "include": ["src/**/*"],
+  "exclude": ["node_modules"],
+}

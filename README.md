@@ -24,3 +24,16 @@
 
 * Pairs, Triplets?
 * Unit test based algorithm
+
+### Notes:
+
+* Resource (Primes, 1 - 1000) - https://byjus.com/maths/prime-numbers-from-1-to-1000/
+* Using helpers to show primes of x, y in problems:
+
+-------------------------------------------------------------------------------------
+
+p1 + p2 = ?
+(previous primes of p1 && previous primes of p2)
+
+
+-------------------------------------------------------------------------------------

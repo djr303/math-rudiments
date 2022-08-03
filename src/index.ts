@@ -1,17 +1,5 @@
 const colors = require("colors");
 
-const ADDITION = "ADDITION";
-const SUBTRACTION = "SUBTRACTION";
-const MULTIPLICATION = "MULTIPLICATION";
-const DIVISION = "DIVISION";
-
-const settings = [
-  [ADDITION, 25, 100, 0],
-  [SUBTRACTION, 25, 100, 0],
-  [MULTIPLICATION, 25, 10, 0],
-  [DIVISION, 25, [100, 10], 0],
-];
-
 const generateFixed = (factor, toFixed) => parseInt(Math.round(Math.random() * factor).toFixed(toFixed))
 
 const generateAdditionProblem = (factor, toFixed) => {

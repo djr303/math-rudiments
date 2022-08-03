@@ -12,12 +12,13 @@
 
 # NOW:
 
-1. TypeScript + config for power of base 10 calcs
+1. TypeScript + config for power of base 10 calcs ( x * 10 ** x)
 2. Bash runner
 3. line in
 4. process.exit
 5. Run through all factorials (need development) when the answer is wrong
 6. Possible number pairs / factorial pairs
+7. Consider how we do this with bases: 2 ** n (8,4,2), (3 ** n, 9,6,3), consider approach here.
 
 
 ## Factorials
@@ -32,8 +33,7 @@
 
 -------------------------------------------------------------------------------------
 
-p1 + p2 = ?
-(previous primes of p1 && previous primes of p2)
-
+p1 + p2 = ? && p1 - p2 = ? && p1 * p2 = ? && x / p1 = ?
+(previous primes of p1 & products of p1 + n && previous primes of p2 & products of p2 + n)
 
 -------------------------------------------------------------------------------------

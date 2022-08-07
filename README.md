@@ -37,3 +37,13 @@ p1 + p2 = ? && p1 - p2 = ? && p1 * p2 = ? && x / p1 = ?
 (previous primes of p1 & products of p1 + n && previous primes of p2 & products of p2 + n)
 
 -------------------------------------------------------------------------------------
+
+### Resources:
+
+* https://www.npmjs.com/package/inquirer
+
+
+#### Notes:
+
+* Check TS 'noImplicitAny' Option
+* Check ESLINT fix option

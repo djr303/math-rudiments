@@ -1,9 +1,15 @@
 {
-  "extends": [
-    "airbnb-base",
-    "airbnb-typescript/base"
-  ],
+  "extends":["airbnb-base", "airbnb-typescript"],
   "parserOptions": {
     "project": "./tsconfig.json"
+  },
+  "ignorePatterns": ["dist/**/*", "jest.config.js"],
+  "rules": {
+    "quotes": ["error", "double"],
+    "react/jsx-filename-extension": "off",
+    "max-len": "off",
+    "no-plusplus": "off",
+    "no-continue": "off",
+    "no-await-in-loop": "off"
   }
 }

@@ -1,6 +1,6 @@
-const colors = require("colors");
+const colors = require('colors');
 
-const generateFixed = (factor, toFixed) => parseInt(Math.round(Math.random() * factor).toFixed(toFixed))
+const generateFixed = (factor, toFixed) => parseInt(Math.round(Math.random() * factor).toFixed(toFixed));
 
 const generateAdditionProblem = (factor, toFixed) => {
   const x = generateFixed(factor, toFixed);
@@ -22,10 +22,10 @@ const generateMultiplicationProblem = (factor, toFixed) => {
 };
 const generateDivisionProblem = (factor, toFixed) => {
   const x = generateFixed(factor[0], toFixed);
-  let y = generateFixed(factor[1], toFixed)
+  let y = generateFixed(factor[1], toFixed);
   y = y !== 0 ? y : 1;
-  const z = x * y
-  const answer = x
+  const z = x * y;
+  const answer = x;
   return [`${z} / ${y}`, `${answer}`];
 };
 
@@ -48,7 +48,7 @@ const createQuestions = (s) => {
           ret.push(generateDivisionProblem(s[i][2], s[i][3]));
           break;
         default:
-          continue
+          continue;
       }
     }
   }
@@ -58,12 +58,10 @@ const createQuestions = (s) => {
 
 const keyPressContinue = async () => {
   process.stdin.setRawMode(true);
-  return new Promise((resolve) =>
-    process.stdin.once("data", () => {
-      process.stdin.setRawMode(false);
-      resolve();
-    })
-  );
+  return new Promise((resolve) => process.stdin.once('data', () => {
+    process.stdin.setRawMode(false);
+    resolve();
+  }));
 };
 
 const main = async () => {
@@ -76,9 +74,9 @@ const main = async () => {
     await keyPressContinue();
   }
 
-  console.log("Finished!".green);
+  console.log('Finished!'.green);
 };
 
-;(async () => {
+(async () => {
   await main();
-})().then(process.exit)
+})().then(process.exit);

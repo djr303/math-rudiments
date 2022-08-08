@@ -5,7 +5,7 @@
   },
   "ignorePatterns": ["dist/**/*", "jest.config.js"],
   "rules": {
-    "quotes": ["error", "double"],
+    "quotes": ["error", "single"],
     "react/jsx-filename-extension": "off",
     "max-len": "off",
     "no-plusplus": "off",

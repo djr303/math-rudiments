@@ -1,82 +1,149 @@
-const colors = require('colors');
+// Index (Main)
+// Note: Having to use 'require' here as TS complication does handle this library very well
+const prompts = require('prompts')
 
-const generateFixed = (factor, toFixed) => parseInt(Math.round(Math.random() * factor).toFixed(toFixed));
+import {
+  getAdditionPair, getSubtractionPair, getMultiplicationPair, getDivisionPair, getPreviousPrimesSet, getPrimeFactorSet,
+} from './lib/generators/index';
+import { getRandomPrime, findPreviousPrimes } from './data/primes';
+import { generateRandomInteger } from './lib/helpers';
 
-const generateAdditionProblem = (factor, toFixed) => {
-  const x = generateFixed(factor, toFixed);
-  const y = generateFixed(factor, toFixed);
-  const answer = x + y;
-  return [`${x} + ${y}`, `${answer}`];
-};
-const generateSubtractionProblem = (factor, toFixed) => {
-  const x = generateFixed(factor, toFixed);
-  const y = generateFixed(factor, toFixed);
-  const answer = x - y;
-  return [`${x} - ${y}`, `${answer}`];
-};
-const generateMultiplicationProblem = (factor, toFixed) => {
-  const x = generateFixed(factor, toFixed);
-  const y = generateFixed(factor, toFixed);
-  const answer = x * y;
-  return [`${x} * ${y}`, `${answer}`];
-};
-const generateDivisionProblem = (factor, toFixed) => {
-  const x = generateFixed(factor[0], toFixed);
-  let y = generateFixed(factor[1], toFixed);
-  y = y !== 0 ? y : 1;
-  const z = x * y;
-  const answer = x;
-  return [`${z} / ${y}`, `${answer}`];
-};
+const getValidationFunction = answer => value => value === answer ? true : 'That answer is incorrect.'
 
-const createQuestions = (s) => {
-  const ret = [];
+const getQuestions = () => {
 
-  for (let i = 0; i < s.length; i++) {
-    for (let x = 1; x <= s[i][1]; x++) {
-      switch (s[i][0]) {
-        case ADDITION:
-          ret.push(generateAdditionProblem(s[i][2], s[i][3]));
-          break;
-        case SUBTRACTION:
-          ret.push(generateSubtractionProblem(s[i][2], s[i][3]));
-          break;
-        case MULTIPLICATION:
-          ret.push(generateMultiplicationProblem(s[i][2], s[i][3]));
-          break;
-        case DIVISION:
-          ret.push(generateDivisionProblem(s[i][2], s[i][3]));
-          break;
-        default:
-          continue;
+  const questions: {
+    type: string
+    name: string,
+    message: string,
+    validate: (value: number) => boolean | string
+  }[] = []
+
+  // 2 Addition questions with all previous primes with 3 multipliers for each
+  for (let i = 1; i <= 2; i++) {
+    let [prime01, index01] = getRandomPrime();
+    let [prime02, index02] = getRandomPrime();
+    let additionQuestion = getAdditionPair(prime01, prime02)
+    let allPreviousPrimes01 = getPreviousPrimesSet(findPreviousPrimes(index01 - 1), [generateRandomInteger(10)])
+    let allPreviousPrimes02 = getPreviousPrimesSet(findPreviousPrimes(index02 - 1), [generateRandomInteger(10)])
+
+    questions.push(
+      {
+        type: 'number',
+        name: `Question ${i}`,
+        message: additionQuestion[0],
+        validate: getValidationFunction(additionQuestion[1])
       }
+    )
+
+    for (let x = 0; x < allPreviousPrimes01.length; x++) {
+      questions.push({
+        type: 'number',
+        name: `Question ${i}.${x}`,
+        message: allPreviousPrimes01[x][0],
+        validate: getValidationFunction(allPreviousPrimes01[x][1])
+      })
+    }
+
+    for (let x = 0; x < allPreviousPrimes02.length; x++) {
+      questions.push({
+        type: 'number',
+        name: `Question ${i}.${x}`,
+        message: allPreviousPrimes02[x][0],
+        validate: getValidationFunction(allPreviousPrimes02[x][1])
+      })
+    }
+
+    // 2 Subtraction questions with all previous primes with 3 multipliers for each
+    let [prime03, index03] = getRandomPrime();
+    let [prime04, index04] = getRandomPrime();
+    let subtractionQuestion = getSubtractionPair(prime03, prime04)
+    let allPreviousPrimes03 = getPreviousPrimesSet(findPreviousPrimes(index03 - 1), [generateRandomInteger(10)])
+    let allPreviousPrimes04 = getPreviousPrimesSet(findPreviousPrimes(index04 - 1), [generateRandomInteger(10)])
+
+    questions.push(
+      {
+        type: 'number',
+        name: `Question ${i}`,
+        message: subtractionQuestion[0],
+        validate: getValidationFunction(subtractionQuestion[1])
+      }
+    )
+
+    for (let x = 0; x < allPreviousPrimes03.length; x++) {
+      questions.push({
+        type: 'number',
+        name: `Question ${i}.${x}`,
+        message: allPreviousPrimes03[x][0],
+        validate: getValidationFunction(allPreviousPrimes03[x][1])
+      })
+    }
+
+    for (let x = 0; x < allPreviousPrimes04.length; x++) {
+      questions.push({
+        type: 'number',
+        name: `Question ${i}.${x}`,
+        message: allPreviousPrimes04[x][0],
+        validate: getValidationFunction(allPreviousPrimes04[x][1])
+      })
+    }
+
+    let [prime05] = getRandomPrime();
+    let [prime06] = getRandomPrime();
+    let multiplicationQuestion = getMultiplicationPair(prime05, prime06)
+    let primeFactorsSet01 = getPrimeFactorSet(multiplicationQuestion[1], generateRandomInteger(10))
+
+
+    // 2 Multiplication questions with all prime factors of answer with 3 multiplier questions for each
+    questions.push(
+      {
+        type: 'number',
+        name: `Multiplication question ${i}`,
+        message: multiplicationQuestion[0],
+        validate: getValidationFunction(multiplicationQuestion[1])
+      }
+    )
+
+    for (let x = 0; x < primeFactorsSet01.length; x++) {
+      questions.push({
+        type: 'number',
+        name: `Multiplication question ${i}.${x}`,
+        message: primeFactorsSet01[x][0],
+        validate: getValidationFunction(primeFactorsSet01[x][1])
+      })
+    }
+
+    // 2 Division questions with all prime factors of x with 3 multiplier questions for each
+    let [prime07] = getRandomPrime();
+    let [prime08] = getRandomPrime();
+    let divisionQuestion = getDivisionPair(prime07, prime08)
+    let primeFactorsSet02 = getPrimeFactorSet(divisionQuestion[2], generateRandomInteger(10))
+
+    questions.push(
+      {
+        type: 'number',
+        name: `Division question ${i}`,
+        message: divisionQuestion[0],
+        validate: getValidationFunction(divisionQuestion[1])
+      }
+    )
+
+    for (let x = 0; x < primeFactorsSet02.length; x++) {
+      questions.push({
+        type: 'number',
+        name: `Division question ${i}.${x}`,
+        message: primeFactorsSet02[x][0],
+        validate: getValidationFunction(primeFactorsSet02[x][1])
+      })
     }
   }
 
-  return ret;
-};
-
-const keyPressContinue = async () => {
-  process.stdin.setRawMode(true);
-  return new Promise((resolve) => process.stdin.once('data', () => {
-    process.stdin.setRawMode(false);
-    resolve();
-  }));
-};
+  return questions;
+}
 
 const main = async () => {
-  const questions = createQuestions(settings);
-
-  for (let i = 0; i < questions.length; i++) {
-    console.log(`${questions[i][0]} = ?\n`.red);
-    await keyPressContinue();
-    console.log(`${questions[i][1]}\n\n`.yellow);
-    await keyPressContinue();
-  }
-
-  console.log('Finished!'.green);
+  const questions = getQuestions();
+  await prompts(questions)
 };
 
-(async () => {
-  await main();
-})().then(process.exit);
+main();

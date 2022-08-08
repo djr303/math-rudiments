@@ -1,8 +1,8 @@
 # Math rudiments
 
 * TypeScript
-* To the power of 10
-* Addition, subtraction, multiplication,division
+* To the power of 10??
+* Addition, subtraction, multiplication,division, primes
 
 # TODOs:
 
@@ -29,21 +29,25 @@
 ### Notes:
 
 * Resource (Primes, 1 - 1000) - https://byjus.com/maths/prime-numbers-from-1-to-1000/
-* Using helpers to show primes of x, y in problems:
 
 -------------------------------------------------------------------------------------
 
-p1 + p2 = ? && p1 - p2 = ? && p1 * p2 = ? && x / p1 = ?
-(previous primes of p1 & products of p1 + n && previous primes of p2 & products of p2 + n)
+CONTROLLER (Main)
+
+p1 + p2 = ?
+(all previous primes of p1 & p2 with (3 questions of 1 to 10 multiplier for each))
+
+p1 - p2 = ?
+(all previous primes of p1 & p2 with (3 questions of 1 to 10 multiplier for each))
+
+p1 * p2 = ?
+(all prime factors of answer with 3 questions of 1 to 10 multipliers for each)
+
+x / y = ? (x integer product of y, y is prime, multiplier is 1 to 20)
+(all prime factors of x with 3 questions of 1 to 10 multipliers for each)
 
 -------------------------------------------------------------------------------------
 
 ### Resources:
 
 * https://www.npmjs.com/package/inquirer
-
-
-#### Notes:
-
-* Check TS 'noImplicitAny' Option
-* Check ESLINT fix option

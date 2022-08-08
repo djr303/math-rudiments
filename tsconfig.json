@@ -5,10 +5,11 @@
     "rootDir": "./",
     "noImplicitAny": false,
     "types": [
-      "@types/node"
+      "@types/node",
+      "@types/jest"
     ],
     "baseUrl": ".",
-    "moduleResolution": "node",
+    "moduleResolution": "Node",
     "paths": {
       "~/*": [
         "./*"
@@ -18,6 +19,6 @@
       ]
     },
   },
-  "include": ["src/**/*"],
-  "exclude": ["node_modules", "dist"],
+  "include": ["src/**/*", "src/.config.ts"],
+  "exclude": ["src/**/*test.ts", "node_modules", "dist"],
 }

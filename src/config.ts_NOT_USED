@@ -1,0 +1,60 @@
+
+
+type Addition = 'ADDITION';
+type Subtraction = 'SUBTRACTION';
+type Multiplication = 'MULTIPLICATION';
+type Division = 'DIVISION';
+type All_Previous_Primes = 'ALL_PREVIOUS_PRIMES';
+type Prime_Factors = 'PRIME_FACTORS';
+
+type Question = Addition | Subtraction | Multiplication | Division | All_Previous_Primes | Prime_Factors;
+
+// type Config<T> = T
+
+export const ADDITION = 'ADDITION';
+export const SUBTRACTION = 'SUBTRACTION';
+export const MULTIPLICATION = 'MULTIPLICATION';
+export const DIVISION = 'DIVISION';
+export const ALL_PREVIOUS_PRIMES = 'ALL_PREVIOUS_PRIMES';
+export const PRIME_FACTORS = 'PRIME_FACTORS';
+
+/* enum Strategies {
+  RANDOM = 'RANDOM'
+} */
+
+// TODO: Potential use of config for question generation and guidance strategies (Not implemented)
+// Addition config: [numberOfQuestions: x, strategy: oneof Strategies]
+// type AdditionConfig = Config<[number, Strategies]>
+
+// Subtraction config: [numberOfQuestions: x, strategy: oneof Strategies]
+// type SubtractionConfig = Config<[number, Strategies]>
+
+// Multiplication config: [numberOfQuestions: x, strategy: oneof Strategies]
+// type MultiplicationConfig = Config<[number, Strategies]>
+
+// Multiplication config: [numberOfQuestions: x, strategy: oneof Strategies]
+// type DivisionConfig = Config<[number, Strategies]>
+
+// All previous prime config: [numberOfQuestions: x, strategy: oneof Strategies]
+// type AllPreviousPrimesConfig = Config<[number, Strategies]>
+
+// type QuestionConfig = AdditionConfig | SubtractionConfig | MultiplicationConfig | DivisionConfig | AllPreviousPrimesConfig
+
+type Setting = [Question, number];
+type Settings = Setting[];
+
+/* export const questionGenerators = {
+  [ADDITION]: getAdditionPair,
+  [SUBTRACTION]: getSubtractionPair,
+  [MULTIPLICATION]: getMultiplicationPair,
+  [DIVISION]: getDivisionPair,
+  [ALL_PREVIOUS_PRIMES]: getPreviousPrimesSet,
+  [PRIME_FACTORS]: getPrimeFactorSet,
+}; */
+
+export const settings: Settings = [
+  [ADDITION, 10],
+  [SUBTRACTION, 10],
+  [MULTIPLICATION, 10],
+  [DIVISION, 10],
+];

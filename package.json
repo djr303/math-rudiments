@@ -1,12 +1,12 @@
 {
   "name": "math-rudiments",
   "version": "0.0.1",
-  "description": "To the power of 10 Addition, subtraction, multiplication, division and other math problems",
+  "description": "Addition, subtraction, multiplication, division and other math problems",
   "scripts": {
     "test": "jest",
     "compile": "node ./node_modules/typescript/bin/tsc -p ./tsconfig.json",
     "lint:fix": "eslint --fix ./",
-    "run": "node ./dist/index.js"
+    "run": "node ./dist/src/index.js"
   },
   "repository": {
     "type": "git",
@@ -19,8 +19,8 @@
   },
   "homepage": "https://github.com/djr303/math-rudiments#readme",
   "dependencies": {
-    "colors": "^1.4.0",
-    "inquirer": "^9.0.2"
+    "inquirer": "^9.0.2",
+    "prompts": "^2.4.2"
   },
   "devDependencies": {
     "@types/jest": "^28.1.6",

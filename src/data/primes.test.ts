@@ -1,5 +1,5 @@
 // Primes tests
-import { MAX_INDEX, MIN_INDEX, PRIMES_1_TO_200, getPrimes, isPrime, getRandomPrime } from './primes'
+import { MAX_INDEX, MIN_INDEX, PRIMES_1_TO_200, getPrimes, isPrime, getRandomPrime, findPreviousPrimes } from './primes'
 
 const resultingError = new Error('Indexes out of range')
 
@@ -92,6 +92,14 @@ describe('Primes - primes.ts', () => {
       const [testableValue, _] = getRandomPrime();
 
       expect(PRIMES_1_TO_200.indexOf(testableValue)).toBeGreaterThan(-1)
+    })
+  })
+
+  describe('findPreviousPrimes()', () => {
+    it('Should return correct set of primes based off a valid index supplied', () => {
+      const index = MIN_INDEX + 4
+      const testableValue = findPreviousPrimes(index)
+      expect(testableValue).toStrictEqual([2,3,5,7])
     })
   })
 })

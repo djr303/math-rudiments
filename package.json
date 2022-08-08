@@ -1,7 +1,7 @@
 {
   "name": "math-rudiments",
   "version": "0.0.1",
-  "description": "Addition, subtraction, multiplication, division and other math problems",
+  "description": "Addition, subtraction, multiplication, division and other math problems relating to primes",
   "scripts": {
     "test": "jest",
     "compile": "node ./node_modules/typescript/bin/tsc -p ./tsconfig.json",
@@ -19,7 +19,6 @@
   },
   "homepage": "https://github.com/djr303/math-rudiments#readme",
   "dependencies": {
-    "inquirer": "^9.0.2",
     "prompts": "^2.4.2"
   },
   "devDependencies": {

@@ -27,7 +27,7 @@ export const findPreviousPrimes = (index: number) => {
   const ret = [];
 
   for (let i = 0; i < index; i++) {
-    ret.push(PRIMES_1_TO_200[index]);
+    ret.push(PRIMES_1_TO_200[i]);
   }
 
   return ret;

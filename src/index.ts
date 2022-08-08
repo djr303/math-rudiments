@@ -30,7 +30,7 @@ const getQuestions = () => {
     questions.push(
       {
         type: 'number',
-        name: `Question ${i}`,
+        name: `Addition question ${i}`,
         message: additionQuestion[0],
         validate: getValidationFunction(additionQuestion[1])
       }
@@ -39,7 +39,7 @@ const getQuestions = () => {
     for (let x = 0; x < allPreviousPrimes01.length; x++) {
       questions.push({
         type: 'number',
-        name: `Question ${i}.${x}`,
+        name: `Multiplication question ${i}.${x}`,
         message: allPreviousPrimes01[x][0],
         validate: getValidationFunction(allPreviousPrimes01[x][1])
       })
@@ -48,7 +48,7 @@ const getQuestions = () => {
     for (let x = 0; x < allPreviousPrimes02.length; x++) {
       questions.push({
         type: 'number',
-        name: `Question ${i}.${x}`,
+        name: `Multiplication question ${i}.${x}`,
         message: allPreviousPrimes02[x][0],
         validate: getValidationFunction(allPreviousPrimes02[x][1])
       })
@@ -64,7 +64,7 @@ const getQuestions = () => {
     questions.push(
       {
         type: 'number',
-        name: `Question ${i}`,
+        name: `Subtraction question ${i}`,
         message: subtractionQuestion[0],
         validate: getValidationFunction(subtractionQuestion[1])
       }
@@ -73,7 +73,7 @@ const getQuestions = () => {
     for (let x = 0; x < allPreviousPrimes03.length; x++) {
       questions.push({
         type: 'number',
-        name: `Question ${i}.${x}`,
+        name: `Multiplication question ${i}.${x}`,
         message: allPreviousPrimes03[x][0],
         validate: getValidationFunction(allPreviousPrimes03[x][1])
       })
@@ -82,7 +82,7 @@ const getQuestions = () => {
     for (let x = 0; x < allPreviousPrimes04.length; x++) {
       questions.push({
         type: 'number',
-        name: `Question ${i}.${x}`,
+        name: `Multiplication question ${i}.${x}`,
         message: allPreviousPrimes04[x][0],
         validate: getValidationFunction(allPreviousPrimes04[x][1])
       })
@@ -131,19 +131,23 @@ const getQuestions = () => {
     for (let x = 0; x < primeFactorsSet02.length; x++) {
       questions.push({
         type: 'number',
-        name: `Division question ${i}.${x}`,
+        name: `Prime factor question ${i}.${x}`,
         message: primeFactorsSet02[x][0],
         validate: getValidationFunction(primeFactorsSet02[x][1])
       })
     }
-  }
+  } 
 
   return questions;
 }
 
 const main = async () => {
   const questions = getQuestions();
-  await prompts(questions)
+  console.log('Number of questions: ', questions.length)  
+
+  for (let i = 0; i < questions.length; i++){
+    await prompts(questions[i])
+  }
 };
 
 main();

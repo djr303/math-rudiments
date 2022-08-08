@@ -12,5 +12,6 @@ export const getQuestionAnswerSet = (previousPrimes: number[], multiples: number
       ret.push([qStr, answer]);
     }
   }
+
   return ret;
 };

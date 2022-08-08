@@ -9,8 +9,6 @@ describe('All previous primes - allPreviousPrimes.ts', () => {
       const primes = getPrimes(MIN_INDEX, 3)
       const questionAnswerSet = getQuestionAnswerSet(primes, [3])
 
-      console.log('questionAnswerSet', questionAnswerSet)
-
       const expectedValues = [
         ['2 * 3 = ?', 6],
         ['3 * 3 = ?', 9],

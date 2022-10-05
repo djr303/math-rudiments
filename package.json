@@ -6,7 +6,7 @@
     "test": "jest",
     "compile": "node ./node_modules/typescript/bin/tsc -p ./tsconfig.json",
     "lint:fix": "eslint --fix ./",
-    "run": "node ./dist/src/index.js"
+    "start": "node ./dist/src/index.js"
   },
   "repository": {
     "type": "git",
@@ -19,6 +19,7 @@
   },
   "homepage": "https://github.com/djr303/math-rudiments#readme",
   "dependencies": {
+    "commander": "^9.4.0",
     "prompts": "^2.4.2"
   },
   "devDependencies": {

@@ -1,6 +1,6 @@
 // Prime factor products
 import { getPrimeFactors } from '../../data/factorials';
-import { getRandomPrime } from '../../data/primes';
+/* import { getRandomPrime } from '../../data/primes'; */
 import { QuestionAnswerSet } from './types';
 
 export const getQuestionAnswerSet = (x: number, primeMultiplier: number): QuestionAnswerSet => {

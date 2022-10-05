@@ -32,19 +32,8 @@
 
 -------------------------------------------------------------------------------------
 
-CONTROLLER (Main)
-
-p1 + p2 = ?
-(all previous primes of p1 & p2 with (3 questions of 1 to 10 multiplier for each))
-
-p1 - p2 = ?
-(all previous primes of p1 & p2 with (3 questions of 1 to 10 multiplier for each))
-
-p1 * p2 = ?
-(all prime factors of answer with 3 questions of 1 to 10 multipliers for each)
-
-x / y = ? (x integer product of y, y is prime, multiplier is 1 to 20)
-(all prime factors of x with 3 questions of 1 to 10 multipliers for each)
+* NEW QUESTION SET: Finding factorial pairs of numbers
+* Need input which relates to previous primes and larger pair operations
 
 -------------------------------------------------------------------------------------
 

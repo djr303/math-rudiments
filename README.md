@@ -24,7 +24,7 @@
 ## Factorials
 
 * Pairs, Triplets?
-* Unit test based algorithm
+* Unit test based algorythm
 
 ### Notes:
 
